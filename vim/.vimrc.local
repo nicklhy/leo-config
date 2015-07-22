@@ -1,0 +1,70 @@
+set wrap
+set mouse=
+
+let g:tagbar_left=1
+
+" let g:indent_guides_auto_colors = 0
+
+let NERDSpaceDelims=1
+
+map <leader>il :IndentLinesToggle<CR>
+
+set nocursorline
+
+if count(g:spf13_bundle_groups, 'youcompleteme')
+    let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+    let g:ycm_confirm_extra_conf=0
+    nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
+    set completeopt=longest,menu
+    let g:ycm_add_preview_to_completeopt = 1
+    let g:ycm_autoclose_preview_window_after_insertion=1
+    " 开启 YCM 标签补全引擎
+    let g:ycm_collect_identifiers_from_tags_files=1
+    " 禁止缓存匹配项，每次都重新生成匹配项
+    let g:ycm_cache_omnifunc=0
+    " OmniCppComplete
+    inoremap <leader>; <C-x><C-o>
+
+    " highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+    " highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+
+    " ultisnip
+    let g:UltiSnipsExpandTrigger="<TAB>"
+    " let g:UltiSnipsJumpForwardTrigger="<C-B>"
+    " let g:UltiSnipsJumpBackwardTrigger="<C-Z>"
+endif
+
+
+""""""""""""""""""""""""""""""
+""DoxygenToolkit
+""""""""""""""""""""""""""""""
+map fg :Dox<cr>
+map fag :DoxAuthor<cr>
+map fbg :DoxBlock<cr>
+map flg :DoxLic<cr>
+let g:DoxygenToolkit_authorName="Liu Hongye, nicklhy@gmail.com"
+let g:doxygenToolkit_briefTag_funcName="yes"
+let s:licenseTag = "Copyright(C)\<enter>"
+let s:licenseTag = s:licenseTag . "For free\<enter>"
+let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
+let g:DoxygenToolkit_licenseTag = s:licenseTag
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
+
+
+" latex suite
+let g:tex_flavor = "xelatex"
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_FormatDependency_pdf = 'pdf'
+let g:Tex_MultipleCompileFormats = 'pdf'
+set grepprg=grep\ -nH\ $*
+" let g:tex_flavor = "latex"
+let g:tex_indent_items=0
+let g:tex_conceal = ""
+
+
+" PyMode
+let g:pymode_rope_completion = 1
+let g:pymode_rope_completion_bind = '<TAB>'

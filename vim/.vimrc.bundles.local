@@ -1,0 +1,4 @@
+Bundle 'jlanzarotta/bufexplorer'
+Bundle 'Yggdroot/indentLine'
+Bundle 'DoxygenToolkit.vim'
+Bundle 'lervag/vim-latex'
